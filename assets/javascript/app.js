@@ -1,3 +1,4 @@
+
 $(function(){
     generateButtons(topics,"searchBtn","#buttonsDiv");
     console.log("Page Loaded");
@@ -65,11 +66,11 @@ $(document).on('click', '.searchImg',function(){
 })
 
 // Add button based on search input when user enters a search term and clicks the search button
-$("#addSearch").on('click',function(){
+$("#searchBtn").on('click',function(){
     var newImgSearch = $("input").eq(0).val();
     topics.push(newImgSearch);
-    generateButtons(topics, ".searchBtn", "#buttonsDiv");
+    generateButtons(topics, "searchBtn", "#buttonsDiv");
+    return false;
   
 });
-generateButtons(topics, ".searchBtn", "#buttonsDiv");
 
