@@ -20,7 +20,6 @@
             
             <div class="jumbotron jumbotron-fluid">
                     <div class="container">
-                      <h1>Add a pet</h1>
                         <!--Empty Div to hold dynamic buttons  -->
                         <div id="buttonsDiv"></div>
                     </div>
@@ -29,6 +28,7 @@
 
         <!-- Form to add input from user which will add to the button topics -->
         <div class="container">
+        <div class="row">
         <form id="searchForm">
             <label for="search-input">Add a pet!</label>
             <input type="text" id="search-input">
@@ -36,15 +36,17 @@
             <input type="submit" id="searchBtn" value="Submit">
         </form>
         </div>
+        </div>
 
         <!-- Empty div to display the gifs that are pulled from Giphy Api -->
         <div class="container">
-                <div class="card">
+            <div class="row">
+                <div class="card" style="width: 80%;">
                         <div class="card-body">
                             <div id="gifsHolder"></div>
                         </div>
                       </div>
-        
+            </div>
 
         </div>
 
