@@ -1,14 +1,13 @@
-
-// Function to generate buttons based on user input
 $(function(){
-    generateButtons(topics, 'searchButton', "#buttonsDiv");
+    generateButtons(topics,"searchBtn","#buttonsDiv");
+    console.log("Page Loaded");
 })
 
 //Topics array for pets
 var topics = ["dogs", "cats", "hampsters", "turtles", "birds", "goldfish", "snakes"];
 
 //Dynamically add buttons
-function generateButtons (topics, classToAdd, areaToAddTo){
+function generateButtons (topics,classToAdd,areaToAddTo){
     $(areaToAddTo).empty();
     for (var i = 0; i < topics.length; i++){
         var a = $("<button>");
@@ -19,19 +18,24 @@ function generateButtons (topics, classToAdd, areaToAddTo){
     }
 }
 // Function to connect and to search the Giphy API when search button is clicked
-$(document).on('click', '.searchButton', function(){
-    var type = $(this).data('type');
+$(document).on("click", ".searchBtn", function(){
+    var type = $(this).data("type");
+    console.log("Data Type", type);
     //queryURL for Giphy API using API key
     var queryURL = "https://api.giphy.com/v1/gifs/search?q="+type+"&api_key=8kVRuubHgUGKllRAwcKW0COF4HmpNP0J&limit=10";
 
     $.ajax({
       url: queryURL,
       method: "GET"})
+      
       //wait for response from url to get results
     .done(function(response){
+      var results = response.data;
+      console.log("Results", response);
+
         // Retrieve data from Giphy API
         for(var i = 0; i < response.data.length; i++){
-            var gifsHolderDiv = $("<div class='search-item'>");
+            var gifsHolderDiv = $('<div class="search-item">');
             var rating = response.data[i].rating;
             var p = $('<p>').text("Rating:" +rating);
             var animated = response.data[i].images.fixed_height.url;
@@ -60,11 +64,12 @@ $(document).on('click', '.searchImg',function(){
     }
 })
 
-// Add search button based on search input when user enters a search term and clicks the search button
+// Add button based on search input when user enters a search term and clicks the search button
 $("#addSearch").on('click',function(){
     var newImgSearch = $("input").eq(0).val();
     topics.push(newImgSearch);
-    generateButtons(topics, 'searchbutton', '#buttonsDiv');
-    return false;
-})
+    generateButtons(topics, ".searchBtn", "#buttonsDiv");
+  
+});
+generateButtons(topics, ".searchBtn", "#buttonsDiv");
 

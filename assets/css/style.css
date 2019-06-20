@@ -1,8 +1,46 @@
-.btn-primary {
-    color: #fff;
-    background-color: #007bff;
+.searchBtn {
+    color: #ffc;
+    background-color: #369;
     border-color: #007bff;
-    margin-right: 10px;
-    padding: 5px;
+    padding: 5px 10px;
+    margin: 0 10px 10px 0;
     font-family: 'Righteous', cursive;
 }
+
+form {
+    float: left;
+    width: 30%;
+    padding: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  button,
+  input[type="submit"] {
+    padding: 5px 10px;
+    margin: 0 10px 10px 0;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    background: #369;
+  
+  }
+  
+  button:hover,
+  input[type="submit"]:hover {
+    background: #5bb1ae;
+  }
+  
+
+  
